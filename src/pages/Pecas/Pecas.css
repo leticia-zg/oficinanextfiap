@@ -1,0 +1,96 @@
+.main-pecas {
+    margin-top: 80px;
+}
+
+.pesquisa {
+    background-color: #F7F7F7;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 20px;
+}
+
+.p-pesquisa {
+    font-weight: 600;
+    padding: 5px;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    width: 30%;
+    margin-left: 40px;
+}
+
+.buscar {
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 20px;
+    height: auto;
+}
+
+.pecas-auto, .cont-pecas, .maispecas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nome-peca {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.pecas-article {
+    margin-top: 50px;
+    background-color: #bdeafd;
+    color: #000;
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 300px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.pecas-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px 10px 0px 0px;
+    object-fit: cover;
+}
+
+.pecas-p {
+    font-size: 17px;
+    font-family: "Alegreya Sans SC", sans-serif;
+    margin: 10px 0;
+    text-align: justify;
+    min-height: 120px; /* Altura mínima para uniformizar o tamanho dos textos */
+    display: flex;
+    align-items: center;
+}
+
+.text-container {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Definindo altura mínima para uniformidade entre os containers */
+}

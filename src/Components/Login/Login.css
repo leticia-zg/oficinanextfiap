@@ -1,0 +1,115 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5; /* Cor de fundo suave */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Espaçamento interno */
+    background-color: white; /* Fundo da navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.logo-porto {
+    height: 40px; /* Ajuste a altura conforme necessário */
+}
+
+.main-login {
+    max-width: 400px; /* Largura máxima da área de login */
+    margin: 100px auto; /* Centralização na página */
+    padding: 20px;
+    background-color: white; /* Fundo branco */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: 120px; /* Adicionando margem superior de 40px */
+}
+
+.seta {
+    padding-bottom: 20px;
+    width: 25px;
+}
+
+h1 {
+    font-size: 24px;
+    color: black; /* Cor do título alterada para preto */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    text-align: left; /* Alinhar título à esquerda */
+}
+
+h2 {
+    font-size: 16px;
+    color: #333; /* Cor do subtítulo */
+    margin-bottom: 20px; /* Espaçamento abaixo do subtítulo */
+    text-align: left; /* Alinhar subtítulo à esquerda */
+    font-weight: 400; /* Diminuição do font-weight */
+}
+
+.section-acessarconta {
+    margin-bottom: 30px; /* Espaçamento abaixo da seção */
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="password"] {
+    width: 100%; /* Largura total */
+    padding: 12px; /* Espaçamento interno */
+    margin-top: 10px; /* Margem superior */
+    border: 2px solid black; /* Borda preta de 2px */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #0056b3; /* Borda azul ao focar */
+    outline: none; /* Remove contorno padrão */
+}
+
+input[type="submit"] {
+    background-color: #0056b3; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Sem borda */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+input[type="submit"]:hover {
+    background-color: #004494; /* Cor do botão ao passar o mouse */
+}
+
+.lembrete {
+    margin-top: 20px; /* Espaçamento acima da seção de lembrete */
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+.check input[type="checkbox"] {
+    margin-right: 10px; /* Espaço entre o checkbox e o label */
+}
+
+.lembrete p {
+    margin-top: 10px; /* Margem acima do texto de lembrete */
+}
+
+.p-criar {
+    margin-top: 10px; /* Margem acima do link de criar conta */
+    text-align: left; /* Alinhar texto à esquerda */
+}
+
+.p-criar a {
+    color: #0056b3; /* Cor do link */
+    text-decoration: none; /* Sem sublinhado */
+}
+
+.p-criar a:hover {
+    text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+
+.error-message {
+    color: red; /* Cor vermelha para mensagens de erro */
+    margin-top: 10px; /* Margem acima da mensagem */
+    font-size: 14px; /* Tamanho da fonte */
+}
+

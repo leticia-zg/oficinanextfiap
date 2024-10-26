@@ -1,0 +1,124 @@
+.mecanico {
+    margin: 50px 0 40px 50px;
+    font-size: 30px;
+    font-weight: 500;
+}
+ 
+.cep {
+    margin-left: 50px;
+    font-weight: 600;
+    color: #426AB8;
+    font-size: 20px;
+}
+ 
+.mapa {
+    height: 400px;
+    width: 90%;
+    margin-top: 20px;
+}
+ 
+@media(min-width: 700px) {
+    .mapa {
+        height: 400px;
+        width: 50%;
+    }
+}
+ 
+.search {
+    position: relative;
+    width: 31%;
+    margin: 0 0 0 50px;
+}
+ 
+.search img {
+    position: absolute;
+    right: -40px;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+ 
+@media(min-width: 425px) {
+    .search img {
+        right: 10px;
+    }
+}
+ 
+.search .insert {
+    width: 150%;
+    height: 30px;
+    border: 2px solid #8adcff;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+ 
+@media(min-width: 425px) {
+    .search .insert {
+        width: 100%;
+    }
+}
+ 
+.oficinas {
+    margin-top: 20px;
+    flex-direction: column;
+}
+ 
+.oficinas li {
+    list-style: none;
+}
+ 
+.oficinas p {
+    padding-bottom: 20px;
+    margin-left: 40px;
+    margin-top: -10px;
+}
+ 
+.oficinas img {
+    padding-top: 10px;
+}
+ 
+.vermais {
+    background-color: #fff;
+    color: #000;
+    font-size: 17px;
+    width: 150px;
+    height: 40px;
+    border: 3px solid #426AB8;
+    border-radius: 5px;
+    padding: 7px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 26px; 
+}
+ 
+.vermais:hover {
+    background-color: #8adcff;
+    color: #000;
+    cursor: pointer;
+}
+ 
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+ 
+.locais {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+ 
+@media(min-width: 700px) {
+    .locais {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+ 
