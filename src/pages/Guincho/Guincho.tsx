@@ -1,5 +1,5 @@
 // src/Components/Guincho/Guincho.tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Guincho.css';
 import Footer from '../../Components/Footer/Footer';
 import Navbar from '../../Components/Navbar/Navbar';
@@ -61,14 +61,12 @@ export default function Guincho() {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (validateForm()) {
-            setConfirmationMessage(`
-                Endereço de origem: ${formData.origem}
-                Endereço de destino: ${formData.destino}
-                Placa: ${formData.placa}
-                Cor: ${formData.cor}
-                Ano do veículo: ${formData.ano}
-                Telefone: ${formData.telefone}
-            `);
+            setConfirmationMessage(`Endereço de origem: ${formData.origem}
+                                    Endereço de destino: ${formData.destino}
+                                    Placa: ${formData.placa}
+                                    Cor: ${formData.cor}
+                                    Ano do veículo: ${formData.ano}
+                                    Telefone: ${formData.telefone}`);
             setModalVisible(true);
         }
     };
