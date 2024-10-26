@@ -1,10 +1,20 @@
+// src/Components/Guincho/Guincho.tsx
 import React, { useState } from 'react';
 import './Guincho.css';
 import Footer from '../../Components/Footer/Footer';
 import Navbar from '../../Components/Navbar/Navbar';
 
+interface FormData {
+    origem: string;
+    destino: string;
+    placa: string;
+    cor: string;
+    ano: string;
+    telefone: string;
+}
+
 export default function Guincho() {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         origem: '',
         destino: '',
         placa: '',
@@ -12,15 +22,15 @@ export default function Guincho() {
         ano: '',
         telefone: '',
     });
-    const [modalVisible, setModalVisible] = useState(false);
-    const [confirmationMessage, setConfirmationMessage] = useState('');
-    const [successModalVisible, setSuccessModalVisible] = useState(false); // Modal de sucesso
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
+    const [confirmationMessage, setConfirmationMessage] = useState<string>('');
+    const [successModalVisible, setSuccessModalVisible] = useState<boolean>(false); // Modal de sucesso
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const validateForm = () => {
+    const validateForm = (): boolean => {
         const { origem, destino, placa, ano, telefone } = formData;
         const phonePattern = /^\(\d{2}\)\s?\d{5}-\d{4}$/; // Exemplo: (11) 91234-5678
         const yearPattern = /^(19|20)\d{2}$/; // Aceita anos de 1900 até 2099
@@ -48,7 +58,7 @@ export default function Guincho() {
         return true;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (validateForm()) {
             setConfirmationMessage(`
@@ -109,7 +119,7 @@ export default function Guincho() {
                         <label htmlFor="ano" className="form-label-guincho">Qual o ano do veículo?:<span className="campo-guincho">*</span></label>
                     </div>
                     <div className="form-div-guincho">
-                        <input type="text" id="telefone" name="telefone" className="form-input-guincho" required value={formData.telefone} onChange={handleChange} aria-label="Número de telefone" placeholder="(XX) 91234-5678" />
+                        <input type="text" id="telefone" name="telefone" className="form-input-guincho" required value={formData.telefone} onChange={handleChange} aria-label="Número de telefone" />
                         <label htmlFor="telefone" className="form-label-guincho">Número de telefone:<span className="campo-guincho">*</span></label>
                     </div>
                     <p className="info-guincho">Incluso: Atendimento em todo o território nacional, remoção do veículo e transporte até o local desejado.</p>
