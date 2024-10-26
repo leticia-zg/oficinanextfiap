@@ -41,7 +41,7 @@ export default function Login() {
         }
 
         // Redireciona para a página de agendamentos
-        navigate('/agendamentos');
+        navigate('/');
     };
 
     return (
