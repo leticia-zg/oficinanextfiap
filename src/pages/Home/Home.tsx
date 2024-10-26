@@ -10,16 +10,21 @@ export default function Home() {
     const respostas = document.querySelectorAll<HTMLElement>(".seta-baixo");
 
     respostas.forEach((resposta) => {
-      resposta.onclick = () => { // Usando uma função de seta
-        const duvidas = resposta.closest("article")?.nextElementSibling as HTMLElement; // Aqui usamos 'resposta' diretamente
+      resposta.onclick = () => {
+        const duvidas = resposta.closest("article")?.nextElementSibling as HTMLElement;
         if (duvidas) {
           duvidas.classList.toggle("teste");
 
-          // Verifica a classe e altera a imagem
+          // Altere o caminho do arquivo de imagem conforme necessário
           (resposta as HTMLImageElement).src = duvidas.classList.contains("teste")
             ? "/imgs/seta-cima.png"
-            : "/imgs/seta-para-baixo (2).png"; 
+            : "/imgs/seta-para-baixo (2).png";
         }
+
+        // Aqui você pode ter outras manipulações que resultem em números
+        // Exemplo de manipulação que pode gerar erro
+        const valorString: string = (resposta as HTMLElement).getAttribute("data-valor") || "0";
+        const valorNumber: number = parseFloat(valorString); // Converte para número
       };
     });
   }, []);
@@ -138,41 +143,41 @@ export default function Home() {
         <Local />
         <p className="duvidafrequente">Dúvidas Frequentes</p>
         <section className="perguntas">
-          <article role="article" tabIndex="0" className="article">
+          <article role="article" className="article">
             <p className="p-pergunta">Segurado Porto possui desconto nos serviços?</p>
             <img src="/imgs/seta-para-baixo (2).png" className="seta-baixo" alt="seta para baixo" role="button"
-              aria-expanded="false" tabIndex="0" />
+              aria-expanded="false" />
           </article>
-          <div tabIndex="0" className="div-resposta">
+          <div className="div-resposta">
             <p className="respostas">Sim, o segurado da Porto Seguro possui descontos em diversos serviços automotivos,
               residenciais e em estabelecimentos parceiros.
               Esses benefícios incluem revisões de veículos, assistência técnica e descontos exclusivos.</p>
           </div>
-          <article role="article" tabIndex="0" className="article">
+          <article role="article" className="article">
             <p className="p-pergunta">Como faço para adquirir uma peça?</p>
             <img src="/imgs/seta-para-baixo (2).png" className="seta-baixo" alt="seta para baixo" role="button"
-              aria-expanded="false" tabIndex="0" />
+              aria-expanded="false" />
           </article>
-          <div tabIndex="0" className="div-resposta">
+          <div className="div-resposta">
             <p className="respostas">Basta acessar a página de Auto Peças, verificar a peça que precisa e entrar em
               contato com um de nossos mecânicos parceiros.</p>
           </div>
-          <article role="article" tabIndex="0" className="article">
-            <p className="p-pergunta">Como faço para realizar o auto diagnóstico?</p>
+          <article role="article" className="article">
+            <p className="p-pergunta">Quais serviços estão inclusos no seguro?</p>
             <img src="/imgs/seta-para-baixo (2).png" className="seta-baixo" alt="seta para baixo" role="button"
-              aria-expanded="false" tabIndex="0" />
+              aria-expanded="false" />
           </article>
-          <div tabIndex="0" className="div-resposta">
-            <p className="respostas">Para realizar o auto diagnóstico acesse a página de serviços e vá para a página de
-              auto diagnósticos.
-              Insira os problemas notados no seu veículo e receba de imediato um diagnóstico prévio.</p>
+          <div className="div-resposta">
+            <p className="respostas">O seguro de automóvel inclui serviços de guincho, assistência em casos de pane e
+              outros serviços disponíveis conforme a apólice.
+            </p>
           </div>
-          <article role="article" tabIndex="0" className="article">
-            <p className="p-pergunta">Como faço para me tornar um segurado?</p>
+          <article role="article" className="article">
+            <p className="p-pergunta">Como posso me tornar um segurado?</p>
             <img src="/imgs/seta-para-baixo (2).png" className="seta-baixo" alt="seta para baixo" role="button"
-              aria-expanded="false" tabIndex="0" />
+              aria-expanded="false" />
           </article>
-          <div tabIndex="0" className="div-resposta">
+          <div className="div-resposta">
             <p className="respostas">Para se tornar um segurado da Porto Seguro, entre em contato conosco pelo
               WhatsApp ou pelo telefone.
               Nós ajudaremos a iniciar o seu processo de adesão.</p>
