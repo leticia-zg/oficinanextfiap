@@ -9,17 +9,16 @@ export default function Home() {
   useEffect(() => {
     const respostas = document.querySelectorAll<HTMLElement>(".seta-baixo");
 
-    respostas.forEach(function (resposta) {
-      resposta.onclick = function () {
-        const duvidas = this.closest("article")?.nextElementSibling as HTMLElement; // Use 'as' para afirmar o tipo
-        if (duvidas) { // Verifica se duvidas não é nulo
+    respostas.forEach((resposta) => {
+      resposta.onclick = () => { // Usando uma função de seta
+        const duvidas = resposta.closest("article")?.nextElementSibling as HTMLElement; // Aqui usamos 'resposta' diretamente
+        if (duvidas) {
           duvidas.classList.toggle("teste");
 
-          if (duvidas.classList.contains("teste")) {
-            (this as HTMLImageElement).src = "/imgs/seta-cima.png"; // Faz type assertion
-          } else {
-            (this as HTMLImageElement).src = "/imgs/seta-para-baixo (2).png"; // Faz type assertion
-          }
+          // Verifica a classe e altera a imagem
+          (resposta as HTMLImageElement).src = duvidas.classList.contains("teste")
+            ? "/imgs/seta-cima.png"
+            : "/imgs/seta-para-baixo (2).png"; 
         }
       };
     });
