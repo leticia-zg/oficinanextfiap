@@ -9,7 +9,7 @@ export default function Duvidas() {
   const [modalVisivel, setModalVisivel] = useState<boolean>(false);
 
   useEffect(() => {
-    const respostas = document.querySelectorAll('.seta-baixo');
+    const respostas = document.querySelectorAll<HTMLImageElement>('.seta-baixo');
 
     respostas.forEach(function (resposta) {
       resposta.onclick = function () {
@@ -17,10 +17,12 @@ export default function Duvidas() {
         if (duvidas) {
           duvidas.classList.toggle('teste');
 
+          // Asserção de tipo para 'this' como HTMLImageElement
+          const img = this as HTMLImageElement;
           if (duvidas.classList.contains('teste')) {
-            this.src = '/imgs/seta-cima.png';
+            img.src = '/imgs/seta-cima.png';
           } else {
-            this.src = '/imgs/seta-para-baixo (2).png';
+            img.src = '/imgs/seta-para-baixo (2).png';
           }
         }
       };
@@ -179,7 +181,7 @@ export default function Duvidas() {
             <p className="respostas">Para agendar um serviço, basta acessar a aba "Mecânicos Parceiros", indicar sua região, selecionar a oficina de sua escolha e realizar um agendamento.</p>
           </div>
           <article role="article" tabIndex={0} className="article">
-            <p className="p-pergunta">Como solicitar um guincho pelo site?</p>
+            <p className="p-pergunta">Qual a documentação necessária para realizar um seguro?</p>
             <img 
               src="/imgs/seta-para-baixo (2).png" 
               aria-expanded="false"
@@ -190,7 +192,12 @@ export default function Duvidas() {
             />
           </article>
           <div tabIndex={0} className="div-resposta">
-            <p className="respostas">Para solicitar um guincho, você pode acessar a área de "Assistência 24 horas" no site da Porto Seguro e seguir as instruções fornecidas.</p>
+            <p className="respostas">Para realizar a contratação do seguro, geralmente são necessários documentos como CPF, RG, comprovante de residência e documentos do veículo.</p>
+          </div>
+        </section>
+        <section className="cont-perguntas">
+          <div className="div-contato">
+            <p className="p-contato">Caso tenha mais dúvidas, você pode acessar a área de "Assistência 24 horas" no site da Porto Seguro e seguir as instruções fornecidas.</p>
           </div>
         </section>
 
