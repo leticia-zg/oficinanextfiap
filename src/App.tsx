@@ -7,7 +7,6 @@ const LazyGuincho = lazy(() => import('./pages/Guincho/Guincho'));
 const LazyDuvidas = lazy(() => import('./pages/Duvidas/Duvidas'));
 const LazyPecas = lazy(() => import('./pages/Pecas/Pecas'));
 const LazyLogin = lazy(() => import('./pages/LoginPage/LoginPage'));
-const LazyAcessarConta = lazy(() => import('./pages/AcessarConta/AcessarConta'));
 const LazySignup = lazy(() => import('./pages/Signup/Signup'));
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
           <Route path="/pecas" element={<LazyPecas />}/>
           <Route path="/login" element={<LazyLogin />}/>
           <Route path="/signup" element={<LazySignup />}/>
-          <Route path="/acessarconta" element={<LazyAcessarConta />}/>
         </Routes>
       </Suspense>
     </Router>

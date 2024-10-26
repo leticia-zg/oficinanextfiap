@@ -7,17 +7,19 @@ import Footer from '../../Components/Footer/Footer';
 
 export default function Home() {
   useEffect(() => {
-    const respostas = document.querySelectorAll(".seta-baixo");
+    const respostas = document.querySelectorAll<HTMLElement>(".seta-baixo");
 
     respostas.forEach(function (resposta) {
       resposta.onclick = function () {
-        const duvidas = this.closest("article").nextElementSibling;
-        duvidas.classList.toggle("teste");
+        const duvidas = this.closest("article")?.nextElementSibling as HTMLElement; // Use 'as' para afirmar o tipo
+        if (duvidas) { // Verifica se duvidas não é nulo
+          duvidas.classList.toggle("teste");
 
-        if (duvidas.classList.contains("teste")) {
-          this.src = "/imgs/seta-cima.png";
-        } else {
-          this.src = "/imgs/seta-para-baixo (2).png";
+          if (duvidas.classList.contains("teste")) {
+            (this as HTMLImageElement).src = "/imgs/seta-cima.png"; // Faz type assertion
+          } else {
+            (this as HTMLImageElement).src = "/imgs/seta-para-baixo (2).png"; // Faz type assertion
+          }
         }
       };
     });
@@ -34,7 +36,7 @@ export default function Home() {
             <h3 className="h3-home">Conheça nosso <br /> Auto Diagnóstico</h3>
             <p className="p-home">Cada vez mais praticidade!</p>
             <Link to="https://chatoficinavirtual.netlify.app/">
-            <button>Auto Diagnóstico</button>
+              <button>Auto Diagnóstico</button>
             </Link>
           </div>
           <div className="pecas-intro">
@@ -51,11 +53,11 @@ export default function Home() {
               role="img" />
             <div>
               <h3>Sobre</h3>
-              <p >
-                A <span >Oficina Virtual </span>surgiu da necessidade de fornecer para nossos clientes um diagnóstico
+              <p>
+                A <span>Oficina Virtual</span>surgiu da necessidade de fornecer para nossos clientes um diagnóstico
                 do veículo de forma rápida, segura e eficaz! Além do serviço de autodiagnóstico, contamos também
                 com: serviço de guincho, revisão programada, autopeças online, mecânicos parceiros...
-              </p >
+              </p>
             </div>
           </section>
         </div>
@@ -75,7 +77,8 @@ export default function Home() {
               <h3>Assistência à panes</h3>
               <p>
                 Problemas mecânicos, elétricos <br />
-                ou outras emergências.</p>
+                ou outras emergências.
+              </p>
             </div>
           </article>
           <article className="cont-beneficios">
@@ -84,19 +87,21 @@ export default function Home() {
               <h3>Descontos exclusivos</h3>
               <p>
                 Incluso compras e serviços, lazer <br />
-                entretenimento, educação.</p>
+                entretenimento, educação.
+              </p>
             </div>
             <div className="beneficios" id="servicos">
               <img src="/imgs/carrinho.png" alt="carro" />
               <h3>Carro de reserva</h3>
               <p>
                 Utilização variada dependendo <br />do período
-                estipulado na apólice.</p>
+                estipulado na apólice.
+              </p>
             </div>
           </article>
         </section>
 
-        <p className="confira" >Confira nossos serviços</p>
+        <p className="confira">Confira nossos serviços</p>
         <section className="servicos">
           <article className="primeiros-servicos">
             <div className="servico">
@@ -122,7 +127,7 @@ export default function Home() {
               <h3>Mecânicos Parceiros</h3>
               <p>Confira nossos parceiros.</p>
             </div>
-            <div className="servico" >
+            <div className="servico">
               <a href="https://chatoficinavirtual.netlify.app/">
                 <img src="/imgs/notediagnostico.jpg" alt="diagnóstico" />
               </a>
@@ -169,9 +174,9 @@ export default function Home() {
               aria-expanded="false" tabIndex="0" />
           </article>
           <div tabIndex="0" className="div-resposta">
-            <p className="respostas">Para se tornar um segurado porto, basta entrar em contato com um corretor
-              autorizado ou ligar para a central de atendimento.
-              Eles irão orientá-lo sobre os planos disponíveis e o processo de contratação.</p>
+            <p className="respostas">Para se tornar um segurado da Porto Seguro, entre em contato conosco pelo
+              WhatsApp ou pelo telefone.
+              Nós ajudaremos a iniciar o seu processo de adesão.</p>
           </div>
         </section>
       </main>
