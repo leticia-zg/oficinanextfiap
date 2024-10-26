@@ -4,28 +4,30 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 
 export default function Duvidas() {
-  const [duvida, setDuvida] = useState('');
-  const [mensagem, setMensagem] = useState('');
-  const [modalVisivel, setModalVisivel] = useState(false);
+  const [duvida, setDuvida] = useState<string>('');
+  const [mensagem, setMensagem] = useState<string>('');
+  const [modalVisivel, setModalVisivel] = useState<boolean>(false);
 
   useEffect(() => {
     const respostas = document.querySelectorAll('.seta-baixo');
 
     respostas.forEach(function (resposta) {
       resposta.onclick = function () {
-        const duvidas = this.closest('article').nextElementSibling;
-        duvidas.classList.toggle('teste');
+        const duvidas = this.closest('article')?.nextElementSibling;
+        if (duvidas) {
+          duvidas.classList.toggle('teste');
 
-        if (duvidas.classList.contains('teste')) {
-          this.src = '/imgs/seta-cima.png';
-        } else {
-          this.src = '/imgs/seta-para-baixo (2).png';
+          if (duvidas.classList.contains('teste')) {
+            this.src = '/imgs/seta-cima.png';
+          } else {
+            this.src = '/imgs/seta-para-baixo (2).png';
+          }
         }
       };
     });
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (duvida.length < 10) {
       setMensagem('A pergunta deve conter pelo menos 10 caracteres.');
@@ -47,190 +49,150 @@ export default function Duvidas() {
       <main className="main-duvidas">
         <h1 className="h1">Dúvidas Frequentes</h1>
         
-<section className="perguntas">
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Segurado Porto possui desconto nos serviços?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Sim, o segurado da Porto Seguro possui descontos em diversos serviços automotivos, residenciais e em estabelecimentos parceiros. Esses benefícios incluem revisões de veículos, assistência técnica e descontos exclusivos.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Como faço para adquirir uma peça?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Basta acessar a página de Auto Peças, verificar a peça que precisa e entrar em contato com um de nossos mecânicos parceiros.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Como faço para realizar o auto diagnóstico?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Para realizar o auto diagnóstico, acesse a página de serviços e vá para a página de auto diagnósticos. Insira os problemas notados no seu veículo e receba de imediato um diagnóstico prévio.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Como faço para me tornar um segurado?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Para se tornar um segurado Porto, basta entrar em contato com um corretor autorizado ou ligar para a central de atendimento. Eles irão orientá-lo sobre os planos disponíveis e o processo de contratação.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Quais são as oficinas parceiras?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Confira as oficinas parceiras acessando a página de serviços, mecânicos parceiros.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Como faço para agendar uma revisão?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Para agendar uma revisão na Porto Seguro, acesse o site oficial, use o aplicativo da Porto Seguro ou ligue para a central de atendimento. Siga as instruções para escolher o melhor horário e local para o serviço.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Tem algum desconto no valor das peças?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Caso você seja segurado Porto, algumas das peças possuem descontos exclusivos!</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Quanto tempo demora para o guincho chegar?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">O tempo de espera pode variar conforme a localização e o tráfego, mas a empresa se esforça para atender os clientes dentro de 30 a 60 minutos.</p>
-            </div>
+        <section className="perguntas">
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Segurado Porto possui desconto nos serviços?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Sim, o segurado da Porto Seguro possui descontos em diversos serviços automotivos, residenciais e em estabelecimentos parceiros. Esses benefícios incluem revisões de veículos, assistência técnica e descontos exclusivos.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Como faço para adquirir uma peça?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Basta acessar a página de Auto Peças, verificar a peça que precisa e entrar em contato com um de nossos mecânicos parceiros.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Como faço para realizar o auto diagnóstico?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Para realizar o auto diagnóstico, acesse a página de serviços e vá para a página de auto diagnósticos. Insira os problemas notados no seu veículo e receba de imediato um diagnóstico prévio.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Como faço para me tornar um segurado?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Para se tornar um segurado Porto, basta entrar em contato com um corretor autorizado ou ligar para a central de atendimento. Eles irão orientá-lo sobre os planos disponíveis e o processo de contratação.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Quais são as oficinas parceiras?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Confira as oficinas parceiras acessando a página de serviços, mecânicos parceiros.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Como faço para agendar uma revisão?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Para agendar uma revisão na Porto Seguro, acesse o site oficial, use o aplicativo da Porto Seguro ou ligue para a central de atendimento. Siga as instruções para escolher o melhor horário e local para o serviço.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Tem algum desconto no valor das peças?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Caso você seja segurado Porto, algumas das peças possuem descontos exclusivos!</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Quanto tempo demora para o guincho chegar?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">O tempo de espera pode variar conforme a localização e o tráfego, mas a empresa se esforça para atender os clientes dentro de 30 a 60 minutos.</p>
+          </div>
         </section>
         <section className="cont-perguntas">
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Como faço para agendar um serviço com um mecânico parceiro?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Para agendar um serviço, basta acessar a aba "Mecânicos Parceiros", indicar sua região, selecionar a oficina de sua escolha e realizar um agendamento.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Como solicitar um guincho pelo site?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Para solicitar um guincho, basta acessar a aba de "Serviços" e preencher o formulário de solicitação.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Os resultados do auto diagnóstico virtual são enviados para um mecânico parceiro?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Nosso site não faz o envio automático do auto diagnóstico, mas você pode enviar o diagnóstico gerado para o mecânico parceiro ao agendar um serviço.</p>
-            </div>
-            <article role="article" tabIndex="0" className="article">
-                <p className="p-pergunta">Posso comprar peças diretamente pelo site?</p>
-                <img 
-                src="/imgs/seta-para-baixo (2).png" 
-                aria-expanded="false"
-                className="seta-baixo" 
-                alt="seta para baixo" 
-                role="button" 
-                aria-expanded="false" 
-                tabIndex="0" 
-                />
-            </article>
-            <div tabIndex="0" className="div-resposta">
-                <p className="respostas">Não! Nosso site não trata da venda de peças.</p>
-            </div>
-            </section>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Como faço para agendar um serviço com um mecânico parceiro?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Para agendar um serviço, basta acessar a aba "Mecânicos Parceiros", indicar sua região, selecionar a oficina de sua escolha e realizar um agendamento.</p>
+          </div>
+          <article role="article" tabIndex={0} className="article">
+            <p className="p-pergunta">Como solicitar um guincho pelo site?</p>
+            <img 
+              src="/imgs/seta-para-baixo (2).png" 
+              aria-expanded="false"
+              className="seta-baixo" 
+              alt="seta para baixo" 
+              role="button" 
+              tabIndex={0} 
+            />
+          </article>
+          <div tabIndex={0} className="div-resposta">
+            <p className="respostas">Para solicitar um guincho, você pode acessar a área de "Assistência 24 horas" no site da Porto Seguro e seguir as instruções fornecidas.</p>
+          </div>
+        </section>
 
         <h2 className="h2-duvidas">Sua dúvida ainda não foi respondida?</h2>
 
