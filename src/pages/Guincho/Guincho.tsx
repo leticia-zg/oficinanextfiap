@@ -1,6 +1,5 @@
-// src/Components/Guincho/Guincho.tsx
-// Remova esta linha
-import React, { useState } from 'react';
+// src/pages/Guincho/Guincho.tsx
+import { useState } from 'react';
 import './Guincho.css';
 import Footer from '../../Components/Footer/Footer';
 import Navbar from '../../Components/Navbar/Navbar';
@@ -132,7 +131,7 @@ export default function Guincho() {
                     <li>É importante que você retire todos os seus objetos pessoais e de valor do interior do automóvel ou do compartimento da moto para evitar a perda de algum objeto durante o trajeto.</li>
                     <li>No momento da remoção, deverá ser apresentado o documento do veículo e documento do responsável.</li>
                     <li>É importante avisar o prestador caso o veículo possua algum sistema de travas, segredos, alarmes, sensores de presença, rastreadores, bloqueadores ou similares.</li>
-                    <li>Em casos de acidentes de trânsito com vítimas, o guincho só poderá ser acionado depois da liberação policial. Isso evita cobranças adicionais por tempo de espera do guincho com o prestador.</li>
+                    <li>Em casos de acidentes de trânsito com vítimas, o guincho só poderá ser acionado após a chegada da polícia, a qual deve ser informada de forma imediata.</li>
                 </ul>
 
                 {/* Modal de Confirmação */}
