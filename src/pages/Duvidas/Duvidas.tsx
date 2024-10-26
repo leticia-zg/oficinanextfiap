@@ -11,14 +11,14 @@ export default function Duvidas() {
   useEffect(() => {
     const respostas = document.querySelectorAll<HTMLImageElement>('.seta-baixo');
 
-    respostas.forEach(function (resposta) {
-      resposta.onclick = function () {
-        const duvidas = this.closest('article')?.nextElementSibling;
+    respostas.forEach((resposta) => {
+      resposta.onclick = () => {
+        const duvidas = (resposta.closest('article')?.nextElementSibling as HTMLElement);
         if (duvidas) {
           duvidas.classList.toggle('teste');
 
-          // Asserção de tipo para 'this' como HTMLImageElement
-          const img = this as HTMLImageElement;
+          // Asserção de tipo para 'resposta' como HTMLImageElement
+          const img = resposta as HTMLImageElement;
           if (duvidas.classList.contains('teste')) {
             img.src = '/imgs/seta-cima.png';
           } else {
@@ -177,7 +177,7 @@ export default function Duvidas() {
               tabIndex={0} 
             />
           </article>
-          <div tabIndex={0} className="div-resposta">
+          <div className="div-resposta">
             <p className="respostas">Para agendar um serviço, basta acessar a aba "Mecânicos Parceiros", indicar sua região, selecionar a oficina de sua escolha e realizar um agendamento.</p>
           </div>
           <article role="article" tabIndex={0} className="article">
